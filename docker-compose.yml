@@ -1,0 +1,13 @@
+services:
+  embedding:
+    build: .
+    ports:
+      - "8001:8001"
+    env_file:
+      - .env
+    volumes:
+      - model_cache:/root/.cache/huggingface
+    restart: unless-stopped
+
+volumes:
+  model_cache:
